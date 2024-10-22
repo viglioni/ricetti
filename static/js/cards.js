@@ -1,17 +1,28 @@
 import "./enhanced-js.js"
 
-const chooseColor = () => {
+const rndThreeOptions = (opt1, opt2, opt3) => () => {
   const rand = Math.random() * 9
 
-  if (rand < 3) return "blue"
-  if (rand < 6) return "green"
+  if (rand < 3) return opt1
+  if (rand < 6) return opt2
 
-  return "pink"
+  return opt3
 }
+
+const chooseColor = rndThreeOptions("blue", "green", "pink")
 
 const rotateCard = card => {
   const angle = Math.floor((Math.random() * 60 - 30) / 2)
   card.style.transform = `rotate(${angle}deg)`
+}
+
+const alignCard = card => {
+  const alignment = rndThreeOptions(
+    "baseline",
+    "center",
+    "end",
+  )()
+  card.style.alignSelf = alignment
 }
 
 const addTopTape = card => {
@@ -50,5 +61,6 @@ export const makeCards = () => {
     card.classList.add("paper", chooseColor())
     addTape(card)
     rotateCard(card)
+    alignCard(card)
   })
 }

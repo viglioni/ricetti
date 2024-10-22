@@ -54,3 +54,7 @@
     padding: 55px;
   }
 }
+
+.frame-container * {
+  margin-bottom: 34px;
+}

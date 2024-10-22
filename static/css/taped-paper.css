@@ -44,7 +44,8 @@
   justify-content: center;
   font-family: "Caveat", cursive;
   font-size: 2rem;
-  box-shadow: var(--shadow-size) var(--shadow-size) 2px var(--paper-dark);
+  box-shadow: var(--shadow-size) var(--shadow-size) 2px
+    var(--paper-dark);
   margin: 21px;
   padding: 13px;
   text-align: center;
