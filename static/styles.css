@@ -1,5 +1,6 @@
 @import "./css/colors.css";
 @import "./css/frame.css";
+@import "./css/taped-paper.css";
 
 html {
   background-color: var(--light);
@@ -44,5 +45,6 @@ header h1 {
 }
 
 .card-wrapper {
-  padding: 21px;
+  flex-direction: row;
+  justify-content: center;
 }
