@@ -32,8 +32,9 @@
   background: linear-gradient(to bottom right, var(--paper-dark), 20%, var(--transparent)),
     var(--paper-color);
   min-width: 120px;
-  max-width: 150px;
+  max-width: 180px;
   min-height: 120px;
+  max-height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
