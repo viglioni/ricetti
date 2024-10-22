@@ -1,0 +1,37 @@
+/*************/
+/* Up button */
+/*************/
+
+#upBtn {
+  background-color: var(--strongpink);
+  border-radius: 1000px;
+  border: none;
+  bottom: 20px;
+  color: var(--light);
+  display: block;
+  height: 70px;
+  padding: 0;
+  position: fixed;
+  right: 20px;
+  width: 70px;
+  z-index: 1000;
+}
+
+#upBtn.hidden {
+  opacity: 0;
+  visibility: visible;
+  transition: opacity 1s ease-in-out;
+}
+
+#upBtn.shown {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s ease-in-out;
+}
+
+@media only screen and (min-width: 600px) {
+  #upBtn {
+    right: 40px;
+    bottom: 40px;
+  }
+}

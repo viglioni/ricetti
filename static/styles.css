@@ -1,6 +1,7 @@
 @import "./css/colors.css";
 @import "./css/frame.css";
 @import "./css/taped-paper.css";
+@import "./css/up-button.css";
 
 html {
   background-color: var(--light);
