@@ -1,6 +1,6 @@
+/* https://freefrontend.com/css-paper-effects/ */
+
 :root {
-  --pink: #ecb2ba;
-  --pink-dark: #c6939a;
   --tape-gray: #dbd8be;
   --tape-edge-gray: #b7b49d;
   --transparent: rgba(255, 255, 255, 0);
@@ -29,23 +29,17 @@
 
 .paper {
   position: relative;
-  background: linear-gradient(
-      to bottom right,
-      var(--paper-dark),
-      20%,
-      var(--transparent)
-    ),
+  background: linear-gradient(to bottom right, var(--paper-dark), 20%, var(--transparent)),
     var(--paper-color);
-  min-width: 200px;
-  max-width: 250px;
-  min-height: 130px;
+  min-width: 120px;
+  max-width: 150px;
+  min-height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: "Caveat", cursive;
   font-size: 2rem;
-  box-shadow: var(--shadow-size) var(--shadow-size) 2px
-    var(--paper-dark);
+  box-shadow: var(--shadow-size) var(--shadow-size) 2px var(--paper-dark);
   margin: 21px;
   padding: 13px;
   text-align: center;
