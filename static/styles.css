@@ -1,0 +1,48 @@
+@import "./css/colors.css";
+@import "./css/frame.css";
+
+html {
+  background-color: var(--light);
+  padding: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+header {
+  background-color: var(--lightgreen);
+  border-bottom: 5px solid var(--lightpink);
+  border-top: 5px solid var(--lightpink);
+  color: var(--strongerpink);
+  font-family: "Lavishly Yours", cursive;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 13px;
+  text-align: center;
+}
+
+#header-border {
+  border-bottom: 8px solid var(--strongpink);
+  border-top: 3px solid var(--strongpink);
+}
+
+header h1 {
+  margin: 0.3em;
+  font-size: 3em;
+}
+
+.card-wrapper {
+  padding: 21px;
+}
