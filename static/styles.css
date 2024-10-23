@@ -2,13 +2,17 @@
 @import "./css/frame.css";
 @import "./css/taped-paper.css";
 @import "./css/up-button.css";
+@import "./css/recipee.css";
 
 html {
   background-color: var(--light);
   padding: 0;
+  font-family: "Lavishly Yours", cursive;
+  font-style: normal;
+  font-weight: 400;
 }
 
-body {
+#index-body {
   padding: 0;
   margin: 0;
   display: flex;
@@ -27,9 +31,6 @@ header {
   border-bottom: 5px solid var(--lightpink);
   border-top: 5px solid var(--lightpink);
   color: var(--strongerpink);
-  font-family: "Lavishly Yours", cursive;
-  font-style: normal;
-  font-weight: 400;
   margin: 0;
   margin-bottom: 13px;
   text-align: center;
@@ -90,4 +91,13 @@ header h1 {
     max-height: 80px;
     font-size: 1.5em;
   }
+}
+
+/************/
+/* Org mode */
+/************/
+
+#postamble {
+  display: none;
+  width: auto;
 }
