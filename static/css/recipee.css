@@ -1,7 +1,9 @@
+/* https://codepen.io/GemmaCroad/pen/WNayxdb */
+
 @import "./sizes.css";
 
 body {
-  background: url("https://assets.codepen.io/406785/vecteezy_kitchen-cloth-on-wood-table_2229509-min.jpg?format=auto");
+  background: url("../pics/table.jpeg");
   background-position: 10% 75%;
   min-height: 100vh;
   display: flex;
@@ -110,6 +112,10 @@ body {
   );
 }
 
+/*************/
+/* Main card */
+/*************/
+
 #content {
   display: grid;
   align-items: flex-start;
@@ -119,9 +125,13 @@ body {
     "ingredients preparation";
 }
 
-#content * {
+#content div {
   display: grid;
 }
+
+/**********/
+/* Header */
+/**********/
 
 #content h1 {
   width: 100%;
@@ -130,20 +140,18 @@ body {
   grid-area: header;
 }
 
+/*****************/
+/* About section */
+/*****************/
+
 #outline-container-sobre {
   margin: var(--s7) 0;
-  font-size: var(--s8);
+  font-size: var(--s7-5);
+  line-height: var(--s8);
   grid-area: about;
   align-items: flex-start;
   justify-content: left;
-}
-
-#outline-container-ingredientes {
-  grid-area: ingredients;
-}
-
-#outline-container-modo-de-preparo {
-  grid-area: preparation;
+  width: 100%;
 }
 
 #outline-container-sobre * {
@@ -153,6 +161,45 @@ body {
 
 #sobre {
   display: none;
+}
+
+#text-sobre {
+  grid-template-rows: 1fr;
+}
+
+/***********************/
+/* Ingredients section */
+/***********************/
+
+#outline-container-ingredientes {
+  grid-area: ingredients;
+  grid-template-areas:
+    "title"
+    "ingredients";
+}
+
+#ingredientes {
+  align-self: center;
+  justify-self: center;
+  grid-area: title;
+}
+
+#ingredientes a {
+  text-decoration: none;
+  font-size: var(--s8-6);
+  line-height: var(--s8);
+}
+
+#text-ingredientes {
+  grid-area: ingredients;
+}
+
+/***********************/
+/* Preparation section */
+/***********************/
+
+#outline-container-modo-de-preparo {
+  grid-area: preparation;
 }
 
 @media screen and (max-width: 600px) {
