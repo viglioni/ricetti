@@ -1,6 +1,7 @@
 /* https://codepen.io/GemmaCroad/pen/WNayxdb */
 
 @import "./sizes.css";
+@import "https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Mrs+Saint+Delafield&family=Rouge+Script&display=swap";
 
 body {
   background: url("../pics/table.jpeg");
@@ -12,7 +13,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0;
-  font-family: "Mrs Saint Delafield", serif;
+  font-family: "Rouge Script", cursive;
   box-sizing: border-box;
   padding-bottom: var(--s7);
   padding-right: var(--s7);

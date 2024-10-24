@@ -1,0 +1,3 @@
+* Ricetti
+
+A repository with some recipees.
