@@ -6,6 +6,10 @@ Array.prototype.max = function () {
   return Math.max.apply(null, this)
 }
 
+Array.prototype.isEmpty = function () {
+  return this.length == 0
+}
+
 HTMLCollection.prototype.toArray = function () {
   return Array.prototype.slice.call(this)
 }
@@ -23,4 +27,4 @@ String.prototype.capitalize = function () {
   return head.toUpperCase() + tail.join("")
 }
 
-export const innerHTML = (el) => el.innerHTML
+export const innerHTML = el => el.innerHTML

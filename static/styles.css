@@ -30,7 +30,8 @@ div {
   background-image: url("./pics/kitchen.webp");
 }
 
-header {
+#index-body header {
+  margin: 0;
   background-color: var(--lightgreen);
   border-bottom: var(--s4) solid var(--lightpink);
   border-top: var(--s4) solid var(--lightpink);
@@ -39,6 +40,8 @@ header {
   margin-bottom: var(--s6);
   text-align: center;
   width: 100%;
+  font-size: var(--s8);
+  line-height: var(--s8);
 }
 
 #header-border {
@@ -46,7 +49,7 @@ header {
   border-top: var(--s3) solid var(--strongpink);
 }
 
-header h1 {
+header {
   margin: var(--s6);
   margin-top: var(--s8);
   font-size: var(--s9);
@@ -100,6 +103,7 @@ header h1 {
     min-height: 50px;
     max-height: 80px;
     font-size: 1.5em;
+    margin: var(--s7) var(--s8);
   }
 }
 
