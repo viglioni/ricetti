@@ -1,4 +1,6 @@
 @import "./css/colors.css";
+@import "./css/sizes.css";
+
 @import "./css/frame.css";
 @import "./css/taped-paper.css";
 @import "./css/up-button.css";
@@ -12,13 +14,6 @@ html {
   font-weight: 400;
 }
 
-#index-body {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
-
 div {
   display: flex;
   flex-direction: column;
@@ -26,24 +21,36 @@ div {
   align-items: center;
 }
 
+#index-body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-image: url("./pics/kitchen.webp");
+}
+
 header {
   background-color: var(--lightgreen);
-  border-bottom: 5px solid var(--lightpink);
-  border-top: 5px solid var(--lightpink);
+  border-bottom: var(--s4) solid var(--lightpink);
+  border-top: var(--s4) solid var(--lightpink);
   color: var(--strongerpink);
   margin: 0;
-  margin-bottom: 13px;
+  margin-bottom: var(--s6);
   text-align: center;
+  width: 100%;
 }
 
 #header-border {
-  border-bottom: 8px solid var(--strongpink);
-  border-top: 3px solid var(--strongpink);
+  border-bottom: var(--s5) solid var(--strongpink);
+  border-top: var(--s3) solid var(--strongpink);
 }
 
 header h1 {
-  margin: 0.3em;
-  font-size: 5em;
+  margin: var(--s8);
+  margin-top: var(--s10);
+  font-size: var(--s10-9);
+  line-height: var(--s11);
 }
 
 @media screen and (max-width: 600px) {
@@ -52,29 +59,31 @@ header h1 {
   }
 }
 
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(var(--s13), 1fr));
+  grid-auto-flow: dense;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: center;
+  padding: 21px;
+  width: 100%;
+}
+
 .card {
   text-decoration: none;
   color: #333;
   font-family: "Corinthia", cursive;
   font-weight: 700;
   font-style: normal;
-  font-size: 3em;
-}
-
-.card-wrapper {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-auto-flow: dense;
-  gap: 1rem;
-  padding: 1rem;
-  justify-content: center;
-  padding: 21px;
+  font-size: var(--s9);
 }
 
 .frame-container {
   grid-column: span 2;
   grid-row: span 2;
+  margin: var(--s7);
 }
 
 @media screen and (max-width: 600px) {

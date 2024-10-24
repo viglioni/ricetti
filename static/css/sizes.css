@@ -18,4 +18,5 @@
 
   --s7-5: calc(var(--s7) + var(--s5));
   --s8-6: calc(var(--s8) + var(--s6));
+  --s10-9: calc(var(--s10) + var(--s9));
 }
