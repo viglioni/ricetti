@@ -47,10 +47,10 @@ header {
 }
 
 header h1 {
-  margin: var(--s8);
-  margin-top: var(--s10);
-  font-size: var(--s10-9);
-  line-height: var(--s11);
+  margin: var(--s6);
+  margin-top: var(--s8);
+  font-size: var(--s9);
+  line-height: var(--s9);
 }
 
 @media screen and (max-width: 600px) {
@@ -62,7 +62,7 @@ header h1 {
 .card-wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-columns: repeat(auto-fit, minmax(var(--s13), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
   grid-auto-flow: dense;
   gap: 1rem;
   padding: 1rem;
@@ -77,13 +77,14 @@ header h1 {
   font-family: "Corinthia", cursive;
   font-weight: 700;
   font-style: normal;
-  font-size: var(--s9);
+  font-size: var(--s8);
+  margin: var(--s8) var(--s9);
 }
 
 .frame-container {
   grid-column: span 2;
   grid-row: span 2;
-  margin: var(--s7);
+  margin: var(--s2);
 }
 
 @media screen and (max-width: 600px) {

@@ -17,12 +17,7 @@ const rotateCard = card => {
 }
 
 const alignCard = card => {
-  const align = rndThreeOptions("baseline", "center", "end")
-
-  const justify = rndThreeOptions("baseline", "center", "end")
-
-  card.style.alignSelf = align
-  card.style.justifySelf = justify
+  card.style.placeSelf = rndThreeOptions("baseline", "normal", "end")
 }
 
 const addTopTape = card => {

@@ -5,6 +5,7 @@
 body {
   background: url("../pics/table.jpeg");
   background-position: 10% 75%;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -12,6 +13,8 @@ body {
   align-items: center;
   margin: 0;
   font-family: "Mrs Saint Delafield", serif;
+  box-sizing: border-box;
+  padding-bottom: var(--s7);
 }
 
 .content {
@@ -20,9 +23,10 @@ body {
   background-color: #f4ebda;
   border-radius: 0.25rem;
   overflow: hidden;
-  padding-left: var(--s9);
+  padding: var(--s9);
+  padding-top: 0;
   background:
-    repeating-linear-gradient(#0000 0 calc(1.2rem - 1px), #78baf3 0 1.2rem) right bottom /
+    repeating-linear-gradient(#0000 0 calc(17px - 1px), #78baf3 0 17px) right bottom /
       100% 100%,
     linear-gradient(#ffcecd 0 0) 45px 0/2px 100% #f4ebda;
   background-repeat: no-repeat;
@@ -120,9 +124,19 @@ body {
   display: grid;
   align-items: flex-start;
   grid-template-areas:
-    "header  header"
-    "about preparation"
-    "ingredients preparation";
+    "header       header       header      header      header"
+    "about        about        preparation preparation preparation"
+    "ingredients  ingredients  preparation preparation preparation";
+  grid-template-columns: repeat(5, 1fr);
+}
+
+#content p,
+#content td,
+#content a,
+#content ul,
+#content li {
+  font-size: var(--s8-6);
+  line-height: var(--s8-6);
 }
 
 #content div {
@@ -146,17 +160,14 @@ body {
 
 #outline-container-sobre {
   margin: var(--s7) 0;
-  font-size: var(--s7-5);
   line-height: var(--s8);
   grid-area: about;
   align-items: flex-start;
   justify-content: left;
-  width: 100%;
 }
 
 #outline-container-sobre * {
   margin: 0;
-  gap: var(--s9);
 }
 
 #sobre {
@@ -178,6 +189,11 @@ body {
     "ingredients";
 }
 
+#outline-container-ingredientes * {
+  text-align: left;
+  border: 0;
+}
+
 #ingredientes {
   align-self: center;
   justify-self: center;
@@ -186,12 +202,35 @@ body {
 
 #ingredientes a {
   text-decoration: none;
-  font-size: var(--s8-6);
-  line-height: var(--s8);
 }
 
 #text-ingredientes {
   grid-area: ingredients;
+}
+
+#outline-container-ingredientes table * {
+  text-align: left;
+  border: 0;
+}
+
+#outline-container-ingredientes thead {
+  display: none;
+}
+#outline-container-ingredientes td {
+  width: 100%;
+}
+
+#outline-container-ingredientes tr {
+  max-width: 30em;
+  padding: 0;
+  overflow-x: hidden;
+  list-style: none;
+}
+#outline-container-ingredientes tr td:first-child::before {
+  float: left;
+  width: 0;
+  white-space: nowrap;
+  content: ". . . . . . . . . . . . . . . .";
 }
 
 /***********************/
@@ -200,7 +239,34 @@ body {
 
 #outline-container-modo-de-preparo {
   grid-area: preparation;
+
+  padding-left: var(--s8);
 }
+
+#outline-container-modo-de-preparo a {
+  text-decoration: none;
+}
+
+#outline-container-modo-de-preparo p {
+  margin: 0;
+}
+
+#outline-container-modo-de-preparo ol {
+  margin-top: var(--s9);
+}
+
+#outline-container-modo-de-preparo li::marker {
+  color: blue;
+}
+
+#outline-container-modo-de-preparo li {
+  padding-left: var(--s7);
+  margin-top: var(--s7);
+}
+
+/**********/
+/* Mobile */
+/**********/
 
 @media screen and (max-width: 600px) {
   #content {
