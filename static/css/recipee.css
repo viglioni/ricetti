@@ -394,6 +394,7 @@ body {
       linear-gradient(#ffcecd 0 0) 30px 0/2px 100% #f4ebda;
     background-repeat: no-repeat;
     transform: rotate(0);
+    padding-bottom: var(--s9);
   }
   .content {
     display: grid;
@@ -422,7 +423,7 @@ body {
     line-height: var(--s8);
   }
 
-  .content h1 {
+  #content h1 {
     font-size: var(--s9);
     line-height: var(--s9);
   }
