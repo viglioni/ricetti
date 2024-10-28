@@ -137,8 +137,8 @@ body {
 .content a,
 .content ul,
 .content li {
-  font-size: var(--s8-6);
-  line-height: var(--s8-6);
+  font-size: var(--s8);
+  line-height: var(--s8);
 }
 
 .content div {
@@ -152,7 +152,7 @@ body {
 
 #content h1 {
   width: 100%;
-  font-size: var(--s10);
+  font-size: var(--s9-7);
   line-height: var(--s10);
   grid-area: header;
 }
