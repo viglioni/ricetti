@@ -98,10 +98,8 @@ header {
   }
 
   .card {
-    min-width: 50px;
-    max-width: 80px;
-    min-height: 50px;
-    max-height: 80px;
+    width: var(--s10);
+    height: var(--s10);
     font-size: 1.5em;
     margin: var(--s7) var(--s8);
   }
