@@ -1,7 +1,7 @@
 import { makeCards } from "./js/cards.js"
 import { formatPage } from "./js/recipee.js"
 import { smoothScrolling } from "./js/smooth-scrolling.js"
-import { addUpButton, showOrHideBtn } from "./js/up-button.js"
+import { showOrHideBtn } from "./js/up-button.js"
 
 /////////////////////////////////
 // Running after DOM is loaded //
@@ -9,7 +9,6 @@ import { addUpButton, showOrHideBtn } from "./js/up-button.js"
 
 document.addEventListener("DOMContentLoaded", _e => {
   smoothScrolling()
-  addUpButton()
   makeCards()
   formatPage()
 })
