@@ -9,8 +9,6 @@ const rndThreeOptions = (opt1, opt2, opt3) => {
   return opt3
 }
 
-const chooseColor = () => rndThreeOptions("blue", "green", "pink")
-
 const rotateCard = card => {
   const angle = Math.floor((Math.random() * 60 - 30) / 2)
   card.style.transform = `rotate(${angle}deg)`
@@ -65,9 +63,47 @@ const addTape = card => {
 
 const getCards = () => document.getElementsByClassName("card").toArray()
 
+const addColor = (data, card) => {
+  const props = data[card.innerHTML]
+
+  if (props.includes("meal")) {
+    card.classList.add("blue")
+    return
+  }
+
+  if (props.includes("dessert")) {
+    card.classList.add("pink")
+    return
+  }
+
+  card.classList.add("green")
+}
+
+const addIconToCard = (card, imgPath) => {
+  const icon = document.createElement("div")
+  icon.classList.add("card-icon")
+  const img = document.createElement("img")
+  img.src = imgPath
+  icon.appendChild(img)
+
+  card.appendChild(icon)
+}
+
+const addIcon = (data, card) => {
+  const props = data[card.innerHTML]
+
+  if (props.includes("italianfood")) {
+    addIconToCard(card, "/static/pics/italy-flag.svg")
+  }
+}
+
 export const makeCards = () => {
+  //const data = JSON.parse(document.getElementById("data").innerHTML)
+
   getCards().forEach(card => {
-    card.classList.add("paper", chooseColor())
+    addColor(data, card)
+    //    addIcon(data, card)
+    card.classList.add("paper")
     addTape(card)
     rotateCard(card)
     alignCard(card)
