@@ -70,8 +70,9 @@ header {
   gap: 1rem;
   padding: 1rem;
   justify-content: center;
-  padding: 21px;
-  width: 100%;
+  padding: var(--s7);
+  width: calc(100% - 2 * var(--s7));
+  margin: 0;
 }
 
 .card {
@@ -95,6 +96,8 @@ header {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding: var(--s6);
+    width: calc(100% - 2 * var(--s6));
   }
 
   .card {
