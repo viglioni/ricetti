@@ -98,7 +98,7 @@ const addIcon = (data, card) => {
 }
 
 export const makeCards = () => {
-  //const data = JSON.parse(document.getElementById("data").innerHTML)
+  const data = JSON.parse(document.getElementById("data").innerHTML)
 
   getCards().forEach(card => {
     addColor(data, card)
