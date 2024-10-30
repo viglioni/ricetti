@@ -98,10 +98,10 @@ header {
   }
 
   .card {
-    width: var(--s10);
-    height: var(--s10);
+    width: var(--s10-8);
+    height: var(--s9-7);
     font-size: 1.5em;
-    margin: var(--s7) var(--s8);
+    margin: var(--s6) var(--s7);
   }
 }
 
