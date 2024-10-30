@@ -93,7 +93,7 @@ const addIcon = (data, card) => {
   const props = data[card.innerHTML]
 
   if (props.includes("italianfood")) {
-    addIconToCard(card, "/static/pics/italy-flag.svg")
+    addIconToCard(card, "/static/pics/pisa.svg")
   }
 }
 
@@ -102,7 +102,7 @@ export const makeCards = () => {
 
   getCards().forEach(card => {
     addColor(data, card)
-    //    addIcon(data, card)
+    addIcon(data, card)
     card.classList.add("paper")
     addTape(card)
     rotateCard(card)

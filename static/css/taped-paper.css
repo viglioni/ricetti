@@ -122,3 +122,15 @@
   left: -4vmin;
   bottom: 0;
 }
+
+/********/
+/* Icon */
+/********/
+
+.card-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 40px;
+  width: 40px;
+}
