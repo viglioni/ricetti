@@ -395,7 +395,6 @@ body {
       linear-gradient(#ffcecd 0 0) 30px 0/2px 100% #f4ebda;
     background-repeat: no-repeat;
     transform: rotate(0);
-    padding: var(--s9) var(--s6);
     justify-content: center;
   }
   .content {
@@ -471,5 +470,13 @@ body {
     position: absolute;
     left: var(--s7);
     top: var(--s8);
+  }
+
+  #outline-container-ingredientes tr td:last-child::before {
+    position: absolute;
+    left: 100px;
+    width: 0;
+    white-space: nowrap;
+    content: ". . . . . . . . . . . ";
   }
 }
