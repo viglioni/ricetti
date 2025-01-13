@@ -2,7 +2,7 @@
 
 @import "./sizes.css";
 @import "https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Mrs+Saint+Delafield&family=Rouge+Script&display=swap";
-
+@import "https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=League+Script&family=Mrs+Saint+Delafield&family=Rouge+Script&display=swap";
 body {
   background: url("../pics/table.jpeg");
   background-position: 10% 75%;
@@ -25,13 +25,13 @@ body {
   border-radius: 0.25rem;
   overflow: hidden;
   background:
-    repeating-linear-gradient(#0000 0 calc(17px - 1px), #78baf3 0 17px) right bottom /
-      100% 100%,
+    repeating-linear-gradient(#0000 0px calc(var(--s8) - 1px), #78baf3 0 var(--s8)) right
+      bottom / 100% 100%,
     linear-gradient(#ffcecd 0 0) 45px 0/2px 100% #f4ebda;
   background-repeat: no-repeat;
   line-height: 1.2rem;
   min-width: 80vw;
-  transform: rotate(-2deg);
+  transform: rotate(-0deg);
   clip-path: polygon(
     1% 2%,
     3.5% 0.1%,
@@ -138,6 +138,7 @@ body {
 .content a,
 .content ul,
 .content li {
+  font-family: "Corinthia", serif;
   font-size: var(--s8);
   line-height: var(--s8);
 }
@@ -156,6 +157,7 @@ body {
   font-size: var(--s9-7);
   line-height: var(--s10);
   grid-area: header;
+  margin-bottom: var(--s7);
 }
 
 /*****************/
@@ -224,9 +226,6 @@ body {
 #outline-container-ingredientes thead {
   display: none;
 }
-#outline-container-ingredientes td {
-  width: 100%;
-}
 
 #outline-container-ingredientes tr {
   max-width: 30em;
@@ -234,11 +233,12 @@ body {
   overflow-x: hidden;
   list-style: none;
 }
-#outline-container-ingredientes tr td:first-child::before {
-  float: left;
+#outline-container-ingredientes tr td:last-child::before {
+  position: absolute;
+  left: 100px;
   width: 0;
   white-space: nowrap;
-  content: ". . . . . . . . . . . ";
+  content: ". . . . . . . . . . . " ". . . . . . . . . . . ";
 }
 
 /***********************/

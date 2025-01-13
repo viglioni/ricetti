@@ -101,18 +101,14 @@ header {
   }
 
   .card {
-    width: var(--s10-8);
+    width: var(--s10);
     height: var(--s9-7);
     font-size: 1.5em;
     margin: var(--s6) var(--s7);
   }
 
   .card-icon {
-    position: absolute;
-    bottom: 7px;
-    right: 7px;
-    height: 30px;
-    width: 30px;
+    display: none;
   }
 }
 
