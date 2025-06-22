@@ -47,9 +47,10 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  opacity: 0.3;
   background: linear-gradient(
       var(--transparent),
-      50%,
+      49%,
       var(--paper-dark),
       51%,
       var(--transparent)
@@ -57,7 +58,7 @@
     linear-gradient(
       to right,
       var(--transparent),
-      50%,
+      49%,
       var(--paper-dark),
       51%,
       var(--transparent)

@@ -1,10 +1,11 @@
 /* https://codepen.io/GemmaCroad/pen/WNayxdb */
 
-@import "./sizes.css";
+@use "./sizes";
 @import "https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Mrs+Saint+Delafield&family=Rouge+Script&display=swap";
 @import "https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=League+Script&family=Mrs+Saint+Delafield&family=Rouge+Script&display=swap";
+
 body {
-  background: url("../pics/table.jpeg");
+  background: url("../../static/pics/table.jpeg");
   background-position: 10% 75%;
   background-size: cover;
   min-height: 100vh;

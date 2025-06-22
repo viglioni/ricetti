@@ -1,0 +1,121 @@
+@use "./colors";
+@use "./sizes";
+@use "./frame";
+@use "./taped-paper";
+@use "./up-button";
+@use "./recipee";
+
+html {
+  background-color: var(--light);
+  padding: 0;
+  font-family: "Lavishly Yours", cursive;
+  font-style: normal;
+  font-weight: 400;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#ricetti-home-page {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-image: url("../../static/pics/kitchen.webp");
+}
+
+#ricetti-home-page header {
+  margin: 0;
+  background-color: var(--lightgreen);
+  border-bottom: var(--s4) solid var(--lightpink);
+  border-top: var(--s4) solid var(--lightpink);
+  color: var(--strongerpink);
+  margin: 0;
+  margin-bottom: var(--s6);
+  text-align: center;
+  width: 100%;
+  font-size: var(--s8);
+  line-height: var(--s8);
+}
+
+#header-border {
+  border-bottom: var(--s5) solid var(--strongpink);
+  border-top: var(--s3) solid var(--strongpink);
+}
+
+header {
+  margin: var(--s6);
+  margin-top: var(--s8);
+  font-size: var(--s9);
+  line-height: var(--s9);
+}
+
+@media screen and (max-width: 600px) {
+  header h1 {
+    font-size: 3em;
+  }
+}
+
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+  grid-auto-flow: dense;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: center;
+  padding: var(--s7);
+  width: calc(100% - 2 * var(--s7));
+  margin: 0;
+}
+
+.card {
+  text-decoration: none;
+  color: #333;
+  font-family: "Corinthia", cursive;
+  font-weight: 700;
+  font-style: normal;
+  font-size: var(--s8);
+  margin: var(--s8) var(--s9);
+}
+
+.frame-container {
+  grid-column: span 2;
+  grid-row: span 2;
+  margin: var(--s2);
+}
+
+@media screen and (max-width: 600px) {
+  .card-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: var(--s6);
+    width: calc(100% - 2 * var(--s6));
+  }
+
+  .card {
+    width: var(--s10);
+    height: var(--s9-7);
+    font-size: 1.5em;
+    margin: var(--s6) var(--s7);
+  }
+
+  .card-icon {
+    display: none;
+  }
+}
+
+/************/
+/* Org mode */
+/************/
+
+#postamble {
+  display: none;
+  width: auto;
+}
