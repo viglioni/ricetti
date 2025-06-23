@@ -1,7 +1,3 @@
-/*************/
-/* Up button */
-/*************/
-
 #upBtn {
   background-color: var(--strongpink);
   border-radius: 1000px;
@@ -10,27 +6,34 @@
   color: var(--light);
   display: block;
   height: 70px;
+  opacity: 0.7;
   padding: 0;
   position: fixed;
   right: 20px;
   width: 70px;
   z-index: 1000;
-}
 
-#upBtn.hidden {
-  opacity: 0;
-  visibility: visible;
-  transition: opacity 1s ease-in-out;
-}
+  &:hover {
+    opacity: 1;
+  }
 
-#upBtn.shown {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 1s ease-in-out;
-}
+  &.hidden {
+    opacity: 0;
+    visibility: visible;
+    transition: opacity 1s ease-in-out;
+  }
 
-@media only screen and (min-width: 600px) {
-  #upBtn {
+  &.shown {
+    opacity: 0.8;
+    visibility: visible;
+    transition: opacity 1s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
     right: 40px;
     bottom: 40px;
   }

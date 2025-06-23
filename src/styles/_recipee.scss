@@ -1,6 +1,5 @@
-/* https://codepen.io/GemmaCroad/pen/WNayxdb */
-
 @use "./sizes";
+@use "./paper-shape";
 @import "https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Mrs+Saint+Delafield&family=Rouge+Script&display=swap";
 @import "https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=League+Script&family=Mrs+Saint+Delafield&family=Rouge+Script&display=swap";
 
@@ -33,93 +32,16 @@ body {
   line-height: 1.2rem;
   min-width: 80vw;
   transform: rotate(-0deg);
-  clip-path: polygon(
-    1% 2%,
-    3.5% 0.1%,
-    8.9% 2.7%,
-    16.2% 1.2%,
-    19.7% 0.8%,
-    24.7% 2%,
-    31.2% 0%,
-    35.9% 2.3%,
-    40.6% 0.5%,
-    47.1% 1.8%,
-    49.9% 1%,
-    53.8% 2.5%,
-    62.2% 0.4%,
-    67.3% 1.2%,
-    70.3% 0.3%,
-    75.8% 1.4%,
-    78.5% 1.7%,
-    84% 2.6%,
-    91.1% 0.5%,
-    93.6% 2.4%,
-    97.3% 0.3%,
-    98.9% 6%,
-    98.1% 11.4%,
-    98.6% 15.5%,
-    97.3% 17.8%,
-    97.7% 27.4%,
-    98.3% 28.5%,
-    99.7% 34.1%,
-    98.8% 41.9%,
-    98.3% 45.7%,
-    98.4% 50.9%,
-    98.7% 57.4%,
-    99.6% 60.4%,
-    99.4% 66.6%,
-    99.2% 69.5%,
-    97.4% 77.1%,
-    98.1% 82.3%,
-    99.9% 83.5%,
-    98.2% 91.5%,
-    99.3% 95.3%,
-    98% 98.6%,
-    93.6% 97.4%,
-    90.3% 98.3%,
-    86.8% 98.3%,
-    78.6% 98.5%,
-    76.4% 99.2%,
-    69.7% 99.8%,
-    64.2% 99.3%,
-    61.8% 99.2%,
-    57.2% 98.1%,
-    48.7% 98.3%,
-    46.8% 99%,
-    39.6% 98.9%,
-    33.8% 97.3%,
-    28.2% 99.4%,
-    27% 98.3%,
-    22.1% 98.6%,
-    13.1% 97.1%,
-    8.7% 99.3%,
-    2.7% 97.4%,
-    2% 98.2%,
-    2.1% 94.3%,
-    0.7% 90.5%,
-    0.9% 86.3%,
-    2.2% 78.2%,
-    0.4% 76.7%,
-    1.2% 72.1%,
-    2% 64%,
-    1.4% 59.8%,
-    0.4% 57.3%,
-    0.3% 49.1%,
-    2.9% 44.7%,
-    1.9% 41.3%,
-    0.8% 35.7%,
-    2.9% 31.3%,
-    0.8% 24.9%,
-    2.7% 20.5%,
-    0.8% 17.4%,
-    2.5% 8.6%,
-    1.1% 5.5%
-  );
-}
+  @include paper-shape.torn-paper-shape;
 
-/*************/
-/* Main card */
-/*************/
+  h1 {
+    width: 100%;
+    font-size: var(--s9-7);
+    line-height: var(--s10);
+    grid-area: header;
+    margin-bottom: var(--s7);
+  }
+}
 
 .content {
   display: grid;
@@ -132,38 +54,16 @@ body {
   max-width: var(--s15);
   padding: var(--s9);
   padding-top: 0;
-}
 
-.content p,
-.content td,
-.content a,
-.content ul,
-.content li {
   font-family: "Corinthia", serif;
   font-size: var(--s8);
   line-height: var(--s8);
+
+  div {
+    display: grid;
+    text-align: left;
+  }
 }
-
-.content div {
-  display: grid;
-  text-align: left;
-}
-
-/**********/
-/* Header */
-/**********/
-
-#content h1 {
-  width: 100%;
-  font-size: var(--s9-7);
-  line-height: var(--s10);
-  grid-area: header;
-  margin-bottom: var(--s7);
-}
-
-/*****************/
-/* About section */
-/*****************/
 
 #outline-container-sobre {
   margin: var(--s7) 0;
@@ -171,282 +71,93 @@ body {
   grid-area: about;
   align-items: flex-start;
   justify-content: left;
-}
 
-#outline-container-sobre * {
-  margin: 0;
+  * {
+    margin: 0;
+  }
+
+  a {
+    color: Crimson;
+  }
 }
 
 #sobre {
   display: none;
 }
 
-#outline-container-sobre a {
-  color: Crimson;
-}
-
 #text-sobre {
   grid-template-rows: 1fr;
 }
 
-/***********************/
-/* Ingredients section */
-/***********************/
-
 #outline-container-ingredientes {
-  grid-area: ingredients;
-  grid-template-areas:
-    "title"
-    "ingredients";
-}
+  display: flex;
+  flex-direction: column;
 
-#outline-container-ingredientes * {
-  text-align: left;
-  border: 0;
-}
+  table {
+    width: 100%;
+  }
 
-#ingredientes {
-  align-self: center;
-  justify-self: center;
-  grid-area: title;
-}
+  tr {
+    display: grid;
+    grid-template-columns: 1fr auto; // Left flexible, right auto-width
+    gap: 10px;
+    align-items: baseline;
 
-#ingredientes a {
-  text-decoration: none;
+    td:first-child {
+      justify-self: start; // Left align
+    }
+
+    td:last-child {
+      justify-self: start; // Left align within their column
+      text-align: left;
+    }
+  }
+
+  #ingredientes {
+    align-self: center;
+    justify-self: center;
+    grid-area: title;
+
+    a {
+      text-decoration: none;
+    }
+  }
 }
 
 #text-ingredientes {
   grid-area: ingredients;
 }
 
-#outline-container-ingredientes table * {
-  text-align: left;
-  border: 0;
-}
-
-#outline-container-ingredientes thead {
-  display: none;
-}
-
-#outline-container-ingredientes tr {
-  max-width: 30em;
-  padding: 0;
-  overflow-x: hidden;
-  list-style: none;
-}
-#outline-container-ingredientes tr td:last-child::before {
-  position: absolute;
-  left: 100px;
-  width: 0;
-  white-space: nowrap;
-  content: ". . . . . . . . . . . " ". . . . . . . . . . . ";
-}
-
-/***********************/
-/* Preparation section */
-/***********************/
-
 #outline-container-modo-de-preparo {
   grid-area: preparation;
   padding-left: var(--s8);
-}
 
-#outline-container-modo-de-preparo > * {
-  grid-column: 1;
-}
-
-#outline-container-modo-de-preparo a {
-  text-decoration: none;
-}
-
-#outline-container-modo-de-preparo p {
-  margin: 0;
-}
-
-#outline-container-modo-de-preparo ol {
-  margin-top: var(--s9);
-}
-
-#outline-container-modo-de-preparo li::marker {
-  color: blue;
-}
-
-#outline-container-modo-de-preparo li {
-  padding-left: var(--s7);
-  margin-top: var(--s7);
-}
-
-/****************/
-/* MultiRecipee */
-/****************/
-
-.multirecipee {
-  row-gap: var(--s6);
-  position: relative;
-}
-
-.multirecipee .outline-2:after {
-  content: ""; /* This is necessary for the pseudo element to work. */
-  display: block; /* This will put the pseudo element on its own line. */
-  margin: 0 auto; /* This will center the border. */
-  grid-column: 1/6;
-  width: 80%;
-  padding-top: var(--s8);
-  border-bottom: 1px solid black; /* This creates the border. Replace black with whatever color you want. */
-}
-
-.multirecipee .outline-2:last-child:after {
-  border: none;
-}
-
-.multirecipee .content > * {
-  grid-column: 1/6;
-}
-
-.multirecipee .content > h2 {
-  text-align: center;
-}
-
-.multirecipee .content > h2 a {
-  text-decoration: none;
-}
-
-/**********************/
-/* Other screen sizes */
-/**********************/
-
-/**************/
-/* Under 1000 */
-/**************/
-
-@media screen and (max-width: 1000) {
-  .content p,
-  .content td,
-  .content a,
-  .content ul,
-  .content li {
-    font-size: var(--s8);
-    line-height: var(--s8);
+  > * {
+    grid-column: 1;
   }
 
-  .content h1 {
-    font-size: var(--s9);
-    line-height: var(--s9);
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .content p,
-  .content td,
-  .content a,
-  .content ul,
-  .content li {
-    font-size: var(--s7-5);
-    line-height: var(--s7-5);
+  a {
+    text-decoration: none;
   }
 
-  .content h1 {
-    font-size: var(--s8);
-    line-height: var(--s8);
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .content {
-    display: grid;
-    grid-template-areas:
-      "header "
-      "about "
-      "ingredients "
-      "preparation ";
-    grid-template-columns: unset;
-    min-width: unset;
-    max-width: 550px;
-    padding-top: var(--s7);
+  p {
+    margin: 0;
   }
 
-  .content > * {
-    max-width: 450px;
+  ol {
+    margin-top: var(--s9);
   }
 
-  .content p,
-  .content td,
-  .content a,
-  .content ul,
-  .content li {
-    font-size: var(--s8);
-    line-height: var(--s8);
-  }
-
-  .content h1 {
-    font-size: var(--s9);
-    line-height: var(--s9);
-  }
-
-  #outline-container-modo-de-preparo {
-    padding: 0;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  #content {
-    background:
-      repeating-linear-gradient(#0000 0 calc(1.2rem - 1px), #78baf3 0 1.2rem) right bottom /
-        100% 100%,
-      linear-gradient(#ffcecd 0 0) 30px 0/2px 100% #f4ebda;
-    background-repeat: no-repeat;
-    transform: rotate(0);
-    justify-content: center;
-  }
-  .content {
-    display: grid;
-    grid-template-areas:
-      "header header header header header"
-      "about about about about about"
-      "ingredients ingredients ingredients ingredients ingredients"
-      "preparation preparation preparation preparation preparation ";
-    grid-template-columns: unset;
-    padding: var(--s7);
-    padding-left: var(--s8);
-    min-width: unset;
-    max-width: 350px;
-  }
-
-  .content > * {
-    max-width: 300px;
-  }
-
-  .content p,
-  .content td,
-  .content a,
-  .content ul,
-  .content li {
-    font-size: var(--s8);
-    line-height: var(--s8);
-  }
-
-  #content h1 {
-    font-size: var(--s9);
-    line-height: var(--s9);
-  }
-
-  #outline-container-modo-de-preparo {
-    padding: 0;
-  }
-
-  #outline-container-modo-de-preparo li {
-    padding-left: 0;
+  li {
+    padding-left: var(--s7);
     margin-top: var(--s7);
-  }
 
-  #outline-container-modo-de-preparo li::marker {
-    font-size: var(--s6);
+    &::marker {
+      color: blue;
+    }
   }
 }
 
-/***************/
-/* Back Button */
-/***************/
 #back-btn {
   width: var(--s9);
   height: var(--s9);
@@ -457,27 +168,32 @@ body {
   background-color: transparent;
   padding: 0;
   margin: 0;
-}
 
-#back-btn > img {
-  width: 100%;
-  height: 100%;
-}
+  > img {
+    width: 100%;
+    height: 100%;
+  }
 
-@media screen and (max-width: 450px) {
-  #back-btn {
+  @media screen and (max-width: 450px) {
     width: var(--s8);
     height: var(--s9);
     position: absolute;
     left: var(--s7);
     top: var(--s8);
   }
+}
 
-  #outline-container-ingredientes tr td:last-child::before {
-    position: absolute;
-    left: 100px;
-    width: 0;
-    white-space: nowrap;
-    content: ". . . . . . . . . . . ";
+///////////////////
+// Portrait mode //
+///////////////////
+
+@media screen and (orientation: portrait) {
+  #content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #outline-container-ingredientes {
+    width: 100%;
   }
 }

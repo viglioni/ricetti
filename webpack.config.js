@@ -40,7 +40,19 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.s[ac]ss$/i,
-          use: ["style-loader", "css-loader", "sass-loader"],
+          use: [
+            "style-loader",
+            "css-loader",
+            "sass-loader",
+            {
+              loader: "sass-loader",
+              options: {
+                sassOptions: {
+                  includePaths: ["./src/styles"], // Add this
+                },
+              },
+            },
+          ],
         },
       ],
     },
