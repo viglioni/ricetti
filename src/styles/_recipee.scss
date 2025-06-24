@@ -1,17 +1,57 @@
 @use "./sizes";
 @use "./paper-shape";
-@import "https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Mrs+Saint+Delafield&family=Rouge+Script&display=swap";
+@use "./handwritten-border";
+
 @import "https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=League+Script&family=Mrs+Saint+Delafield&family=Rouge+Script&display=swap";
+
+// Variables
+$paper-bg-color: #f4ebda;
+$line-color: #78baf3;
+$margin-color: #ffcecd;
+$crimson-link: Crimson;
+$blue-marker: blue;
+
+// Mixins
+@mixin grid-area-layout($areas, $columns: repeat(5, 1fr)) {
+  display: grid;
+  grid-template-areas: $areas;
+  grid-template-columns: $columns;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin paper-background {
+  background-color: $paper-bg-color;
+  background:
+    repeating-linear-gradient(#0000 0px calc(var(--s8) - 1px), $line-color 0 var(--s8))
+      right bottom / 100% 100%,
+    linear-gradient($margin-color 0 0) 45px 0/2px 100% $paper-bg-color;
+  background-repeat: no-repeat;
+}
+
+@mixin responsive-button(
+  $width-mobile: var(--s8),
+  $height-mobile: var(--s9),
+  $left-mobile: var(--s7)
+) {
+  @media screen and (max-width: 450px) {
+    width: $width-mobile;
+    height: $height-mobile;
+    left: $left-mobile;
+  }
+}
 
 body {
   background: url("../../static/pics/table.jpeg");
   background-position: 10% 75%;
   background-size: cover;
   min-height: 100vh;
-  display: flex;
+  @include flex-center;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   margin: 0;
   font-family: "Rouge Script", cursive;
   box-sizing: border-box;
@@ -19,65 +59,81 @@ body {
   padding-right: var(--s7);
 }
 
-#content {
-  position: relative;
-  background-color: #f4ebda;
-  border-radius: 0.25rem;
-  overflow: hidden;
-  background:
-    repeating-linear-gradient(#0000 0px calc(var(--s8) - 1px), #78baf3 0 var(--s8)) right
-      bottom / 100% 100%,
-    linear-gradient(#ffcecd 0 0) 45px 0/2px 100% #f4ebda;
-  background-repeat: no-repeat;
-  line-height: 1.2rem;
-  min-width: 80vw;
-  transform: rotate(-0deg);
-  @include paper-shape.torn-paper-shape;
-
-  h1 {
-    width: 100%;
-    font-size: var(--s9-7);
-    line-height: var(--s10);
-    grid-area: header;
-    margin-bottom: var(--s7);
-  }
-}
-
 .content {
-  display: grid;
+  position: relative;
   align-items: flex-start;
-  grid-template-areas:
+  @include grid-area-layout(
     "header       header       header      header      header"
-    "about        about        preparation preparation preparation"
-    "ingredients  ingredients  preparation preparation preparation";
-  grid-template-columns: repeat(5, 1fr);
+      "about        about        preparation preparation preparation"
+      "ingredients  ingredients  preparation preparation preparation"
+  );
+
   max-width: var(--s15);
+  min-width: 80vw;
   padding: var(--s9);
   padding-top: 0;
+  border-radius: 0.25rem;
+  overflow: hidden;
 
   font-family: "Corinthia", serif;
   font-size: var(--s8);
-  line-height: var(--s8);
+  line-height: var(--s8-6);
+
+  @include paper-background;
+  transform: rotate(-0deg);
+  @include paper-shape.torn-paper-shape;
 
   div {
     display: grid;
     text-align: left;
   }
+
+  %heading-base {
+    width: 100%;
+  }
+
+  h1 {
+    @extend %heading-base;
+    font-size: var(--s9-7);
+    line-height: var(--s10);
+    grid-area: header;
+    margin-bottom: var(--s7);
+  }
+
+  h2 {
+    @extend %heading-base;
+    font-size: var(--s8-6);
+    line-height: var(--s9);
+    margin-bottom: var(--s6);
+  }
+
+  a {
+    text-decoration: none;
+    position: relative;
+    display: inline-box;
+  }
+  a::after {
+    @include handwritten-border.handwritten-border(bottom, 1px, medium, 12px);
+  }
+}
+
+%grid-area-base {
+  * {
+    margin: 0;
+  }
 }
 
 #outline-container-sobre {
+  @extend %grid-area-base;
   margin: var(--s7) 0;
   line-height: var(--s8);
   grid-area: about;
   align-items: flex-start;
   justify-content: left;
 
-  * {
-    margin: 0;
-  }
-
   a {
-    color: Crimson;
+    color: $crimson-link;
+    text-decoration: initial;
   }
 }
 
@@ -92,24 +148,44 @@ body {
 #outline-container-ingredientes {
   display: flex;
   flex-direction: column;
+  line-height: var(--s8);
 
   table {
     width: 100%;
-  }
 
-  tr {
-    display: grid;
-    grid-template-columns: 1fr auto; // Left flexible, right auto-width
-    gap: 10px;
-    align-items: baseline;
+    &,
+    & * {
+      border-collapse: collapse; // Removes spacing between cells
+      border-spacing: 0; // Extra insurance for spacing
 
-    td:first-child {
-      justify-self: start; // Left align
+      position: relative;
+      border: none;
     }
 
-    td:last-child {
-      justify-self: start; // Left align within their column
-      text-align: left;
+    &::after {
+      @include handwritten-border.handwritten-border(bottom, 1px, hard);
+    }
+
+    thead::before {
+      @include handwritten-border.handwritten-border(bottom, 1px, hard);
+    }
+    thead::after {
+      @include handwritten-border.handwritten-border(top, 1px, hard);
+    }
+
+    tr {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: baseline;
+
+      td {
+        &:first-child,
+        &:last-child {
+          justify-self: start;
+          text-align: left;
+        }
+      }
     }
   }
 
@@ -117,27 +193,22 @@ body {
     align-self: center;
     justify-self: center;
     grid-area: title;
+  }
 
-    a {
-      text-decoration: none;
-    }
+  #text-ingredientes {
+    width: calc(100% - var(--s10) - var(--s10));
+    grid-area: ingredients;
+    padding: 0 var(--s10);
   }
 }
 
-#text-ingredientes {
-  grid-area: ingredients;
-}
-
 #outline-container-modo-de-preparo {
+  @extend %grid-area-base;
   grid-area: preparation;
   padding-left: var(--s8);
 
   > * {
     grid-column: 1;
-  }
-
-  a {
-    text-decoration: none;
   }
 
   p {
@@ -146,14 +217,18 @@ body {
 
   ol {
     margin-top: var(--s9);
+    padding: 0;
+    margin-left: 0; // Remove default margin
+    list-style-position: outside; // Bullet outside the content area
   }
 
   li {
-    padding-left: var(--s7);
+    margin-left: 0; // Space for bullet
+    padding-left: 0; // No padding
+    text-indent: 0; // No text indent
     margin-top: var(--s7);
-
     &::marker {
-      color: blue;
+      color: $blue-marker;
     }
   }
 }
@@ -174,12 +249,15 @@ body {
     height: 100%;
   }
 
-  @media screen and (max-width: 450px) {
-    width: var(--s8);
-    height: var(--s9);
-    position: absolute;
-    left: var(--s7);
-    top: var(--s8);
+  @include responsive-button;
+}
+
+@media screen and (max-width: 500px) {
+  #outline-container-ingredientes {
+    #text-ingredientes {
+      width: auto;
+      padding: 0;
+    }
   }
 }
 
@@ -188,19 +266,24 @@ body {
 ///////////////////
 
 @media screen and (orientation: portrait) {
-  #content {
+  .content {
     display: flex;
     flex-direction: column;
+    max-width: 80vw;
+    margin: 10vw;
+    padding: var(--s9) var(--s6) var(--s9) var(--s8-6);
   }
 
   #outline-container-ingredientes {
     width: 100%;
+    #text-ingredientes {
+      padding: 0;
+    }
   }
-}
 
-@media screen and (max-width: 768px) {
-  #content {
-    max-width: 80vw;
-    margin: 10vw;
+  #outline-container-modo-de-preparo {
+    margin: 0;
+    margin-top: var(--s9);
+    padding: 0;
   }
 }

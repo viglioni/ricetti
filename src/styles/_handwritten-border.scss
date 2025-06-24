@@ -1,0 +1,50 @@
+// _handwritten-border.scss
+@mixin handwritten-border(
+  $position: bottom,
+  $thickness: 1px,
+  $roughness: medium,
+  // light, medium, heavy
+  $offset: 0px // Distance from edge
+) {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: $thickness;
+  background: currentColor;
+
+  $multiplier: 1;
+  @if $roughness == light {
+    $multiplier: 0.5;
+  } @else if $roughness == heavy {
+    $multiplier: 2;
+  }
+
+  @if $position == bottom {
+    bottom: $offset; // Use offset for bottom position
+    box-shadow:
+      0 0 #{$multiplier}px 0 currentColor,
+      #{2 * $multiplier}px 0 #{$multiplier}px 0 currentColor,
+      #{4 * $multiplier}px #{1 * $multiplier}px #{$multiplier}px 0 currentColor,
+      #{6 * $multiplier}px 0 #{$multiplier}px 0 currentColor,
+      #{8 * $multiplier}px #{-1 * $multiplier}px #{$multiplier}px 0 currentColor,
+      #{10 * $multiplier}px 0 #{$multiplier}px 0 currentColor,
+      #{12 * $multiplier}px #{1 * $multiplier}px #{$multiplier}px 0 currentColor,
+      #{14 * $multiplier}px 0 #{$multiplier}px 0 currentColor,
+      #{16 * $multiplier}px #{-1 * $multiplier}px #{$multiplier}px 0 currentColor;
+    transform: rotate(-0.2deg);
+  } @else if $position == top {
+    top: $offset; // Use offset for top position
+    box-shadow:
+      0 0 #{$multiplier}px 0 currentColor,
+      #{2 * $multiplier}px 0 #{$multiplier}px 0 currentColor,
+      #{4 * $multiplier}px #{-1 * $multiplier}px #{$multiplier}px 0 currentColor,
+      #{6 * $multiplier}px 0 #{$multiplier}px 0 currentColor,
+      #{8 * $multiplier}px #{1 * $multiplier}px #{$multiplier}px 0 currentColor,
+      #{10 * $multiplier}px 0 #{$multiplier}px 0 currentColor,
+      #{12 * $multiplier}px #{-1 * $multiplier}px #{$multiplier}px 0 currentColor,
+      #{14 * $multiplier}px 0 #{$multiplier}px 0 currentColor,
+      #{16 * $multiplier}px #{1 * $multiplier}px #{$multiplier}px 0 currentColor;
+    transform: rotate(0.3deg);
+  }
+}
