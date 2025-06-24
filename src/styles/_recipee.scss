@@ -197,3 +197,10 @@ body {
     width: 100%;
   }
 }
+
+@media screen and (max-width: 768px) {
+  #content {
+    max-width: 80vw;
+    margin: 10vw;
+  }
+}
