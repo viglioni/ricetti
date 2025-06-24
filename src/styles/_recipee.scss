@@ -35,8 +35,8 @@ $blue-marker: blue;
 
 @mixin responsive-button(
   $width-mobile: var(--s8),
-  $height-mobile: var(--s9),
-  $left-mobile: var(--s7)
+  $height-mobile: var(--s9-7),
+  $left-mobile: var(--s9)
 ) {
   @media screen and (max-width: 450px) {
     width: $width-mobile;
@@ -68,8 +68,9 @@ body {
       "ingredients  ingredients  preparation preparation preparation"
   );
 
-  max-width: var(--s15);
+  max-width: 100vw !important;
   min-width: 80vw;
+  margin: auto;
   padding: var(--s9);
   padding-top: 0;
   border-radius: 0.25rem;
@@ -98,6 +99,9 @@ body {
     line-height: var(--s10);
     grid-area: header;
     margin-bottom: var(--s7);
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
   }
 
   h2 {
@@ -170,7 +174,7 @@ body {
       @include handwritten-border.handwritten-border(bottom, 1px, hard);
     }
     thead::after {
-      @include handwritten-border.handwritten-border(top, 1px, hard);
+      @include handwritten-border.handwritten-border(top, 1px, low);
     }
 
     tr {
@@ -266,11 +270,11 @@ body {
 ///////////////////
 
 @media screen and (orientation: portrait) {
-  .content {
+  #content {
     display: flex;
     flex-direction: column;
     max-width: 80vw;
-    margin: 10vw;
+    margin: 0vw;
     padding: var(--s9) var(--s6) var(--s9) var(--s8-6);
   }
 
