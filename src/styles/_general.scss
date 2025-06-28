@@ -1,0 +1,14 @@
+html {
+  background-color: var(--light);
+  padding: 0;
+  font-family: "Lavishly Yours", cursive;
+  font-style: normal;
+  font-weight: 400;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}

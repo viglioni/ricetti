@@ -153,9 +153,24 @@ body {
   display: flex;
   flex-direction: column;
   line-height: var(--s8);
+  grid-area: ingredients;
 
   table {
-    width: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    padding-right: 12em;
+
+    thead {
+      display: flex;
+
+      tr {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+      }
+    }
 
     &,
     & * {
@@ -176,33 +191,27 @@ body {
     thead::after {
       @include handwritten-border.handwritten-border(top, 1px, low);
     }
+  }
 
-    tr {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 10px;
-      align-items: baseline;
+  tbody tr {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
 
-      td {
-        &:first-child,
-        &:last-child {
-          justify-self: start;
-          text-align: left;
-        }
-      }
+    .org-left {
+      order: 0;
+    }
+    span {
+      order: 1;
+    }
+
+    .org-right {
+      order: 2;
     }
   }
 
-  #ingredientes {
-    align-self: center;
-    justify-self: center;
-    grid-area: title;
-  }
-
   #text-ingredientes {
-    width: calc(100% - var(--s10) - var(--s10));
-    grid-area: ingredients;
-    padding: 0 var(--s10);
+    width: 100%;
   }
 }
 
@@ -279,7 +288,6 @@ body {
   }
 
   #outline-container-ingredientes {
-    width: 100%;
     #text-ingredientes {
       padding: 0;
     }

@@ -299,3 +299,17 @@ export const getInnerHTML = <T extends HTMLElement = HTMLElement>(
 ): O.Option<string> => {
   return isCellEmpty(element.innerHTML) ? O.some(element.innerHTML) : O.none
 }
+
+export const removeClass =
+  (className: string) =>
+  (el: HTMLElement): HTMLElement => {
+    el.classList.remove(className)
+    return el
+  }
+
+export const addClass =
+  (className: string) =>
+  (el: HTMLElement): HTMLElement => {
+    el.classList.add(className)
+    return el
+  }
