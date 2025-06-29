@@ -1,18 +1,13 @@
-import * as O from "fp-ts/Option"
 import * as A from "fp-ts/Array"
 import { pipe } from "fp-ts/lib/function"
-import {
-  createAndAppendBelow,
-  getChildren,
-  getInnerHTML,
-  log,
-  querySelectorAll,
-} from "./document-utils"
+
+import { createAndAppendBelow, log, querySelectorAll } from "./document-utils"
 
 const addDots = (row: HTMLElement) =>
   pipe(
     row,
-    el => el.firstChild as HTMLElement,
+    el => el.firstElementChild as HTMLElement,
+    log,
     createAndAppendBelow("td", {
       classList: "ingredient-dots",
       innerHTML: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ",
@@ -25,5 +20,5 @@ const addDots = (row: HTMLElement) =>
   )
 
 export const leadingDots = () => {
-  console.log(pipe("#text-ingredientes tbody tr", querySelectorAll, A.map(addDots)))
+  pipe("#text-ingredientes tbody tr", querySelectorAll, A.map(addDots))
 }

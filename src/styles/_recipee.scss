@@ -197,17 +197,6 @@ body {
     display: flex;
     flex-direction: row;
     gap: 0;
-
-    .org-left {
-      order: 1;
-    }
-    .ingredient-dots {
-      order: 3;
-    }
-
-    .org-right {
-      order: 5;
-    }
   }
 
   #text-ingredientes {
