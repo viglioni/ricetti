@@ -13,7 +13,8 @@ const addDots = (row: HTMLElement) =>
   pipe(
     row,
     el => el.firstChild as HTMLElement,
-    createAndAppendBelow("span", {
+    createAndAppendBelow("td", {
+      classList: "ingredient-dots",
       innerHTML: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ",
       style: {
         whiteSpace: "nowrap",
