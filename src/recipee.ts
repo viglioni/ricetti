@@ -7,7 +7,6 @@ const addDots = (row: HTMLElement) =>
   pipe(
     row,
     el => el.firstElementChild as HTMLElement,
-    log,
     createAndAppendBelow("td", {
       classList: "ingredient-dots",
       innerHTML: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ",
